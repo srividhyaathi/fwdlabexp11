@@ -1,0 +1,84 @@
+<!Exercise11:Validate the registration page REGNO:21b01a1210>
+    <html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+        <script>
+            function validation() {
+                let fname = document.getElementById('fname').value;
+                let pass = document.getElementById('password').value;
+                let email = document.getElementById('email').value;
+                let mobile = document.getElementById('mobile').value;
+                let count = mobile.length;
+                if (fname == "" || pass == "" || email == "" || mobile == "" || count == 0 || count > 10 || count < 10) {
+                    if (fname.length < 6) {
+                        let id1 = document.getElementById('l1');
+                        id1.style = "visibility:visible";
+                        return false;
+                    }
+                    if (pass.length < 6) {
+                        let id2 = document.getElementById('l2');
+                        id2.style.visibility = "visible";
+                        return false;
+                    }
+                    if (email == "") {
+                        let id3 = document.getElementById('l3');
+                        id3.style.visibility = "visible";
+                        return false;
+                    }
+                    if (count > 10 || count < 10) {
+                        let id4 = document.getElementById('l4');
+                        id4.style.visibility = "visible";
+                        return false;
+                    }
+                    return false;
+                }
+                else {
+                    return true;
+                }
+            }
+        </script>
+    </head>
+
+    <body>
+        <form action="new.html" onsubmit="return validation();">
+            <table>
+                <tr>
+                    <td><label for="">First Name </label></td>
+                    <td> <input type="text" name="" id="fname">
+                        <label for="" id="l1" style=" color:red;visibility:hidden">(only alphabets and min of 6
+                            characters)
+                        </label>
+                    </td>
+                </tr>
+                <tr>
+                    <td><label for="">Password</label></td>
+                    <td><input type="password" name="" id="password">
+                        <label for="" id="l2" style="color:red;visibility:hidden">(Min 6 Characters Allowed)</label>
+                    </td>
+                </tr>
+                <tr>
+                    <td><label for="">Email ID</label></td>
+                    <td><input type="text" name="" id="email">
+                        <label for="" id="l3" style="color:red;visibility:hidden">(must follow standard pattern
+                            name@domain.com)</label>
+                    </td>
+                </tr>
+                <tr>
+                    <td><label for="">Mobile Number</label></td>
+                    <td><input type="text" name="" id="mobile">
+                        <label for="" id="l4" style="color: red;visibility:hidden">(10 Digits Allowed)</label>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2"><input type="submit" value="REGISTER"></td>
+                </tr>
+
+            </table>
+
+    </body>
+
+    </html>
